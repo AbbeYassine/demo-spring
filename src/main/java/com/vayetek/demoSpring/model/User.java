@@ -1,7 +1,5 @@
 package com.vayetek.demoSpring.model;
 
-import org.aspectj.weaver.ast.Or;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,6 +25,9 @@ public class User {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
     public List<Order> getOrders() {
         return orders;
     }
@@ -34,9 +35,6 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
-
-    @OneToMany(mappedBy = "user")
-    private List<Order> orders;
 
 
     public Integer getId() {

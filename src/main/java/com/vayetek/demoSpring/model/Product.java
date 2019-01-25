@@ -20,9 +20,20 @@ public class Product {
     @Column
     private String description;
 
+    @Column
+    private Double price;
+
     @OneToMany(mappedBy = "product")
     private List<Picture> pictures;
 
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
